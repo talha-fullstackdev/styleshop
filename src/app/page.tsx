@@ -58,6 +58,7 @@ export default function Home() {
                           alt="Fashion Collection"
                           width={2432}
                           height={1442}
+                          priority
                           className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
                         />
                       </div>
