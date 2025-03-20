@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Placeholder Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .image-container { margin: 20px 0; }
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placeholder Images</h1>
+        <div id="product-images"></div>
+        <div id="hero-image"></div>
+    </div>
+
+    <script>
+        // Product images
+        const products = [
+            'men-tshirt-1',
+            'men-jacket-1',
+            'men-jeans-1',
+            'men-formal-1',
+            'women-dress-1',
+            'women-blouse-1',
+            'women-jeans-1',
+            'women-coat-1'
+        ];
+
+        const productContainer = document.getElementById('product-images');
+        products.forEach(product => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 500;
+            canvas.height = 500;
+            const ctx = canvas.getContext('2d');
+
+            // Fill background
+            ctx.fillStyle = '#f3f4f6';
+            ctx.fillRect(0, 0, 500, 500);
+
+            // Add text
+            ctx.fillStyle = '#9ca3af';
+            ctx.font = '24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(product, 250, 250);
+
+            const container = document.createElement('div');
+            container.className = 'image-container';
+            container.innerHTML = `<h3>${product}</h3>`;
+            container.appendChild(canvas);
+            productContainer.appendChild(container);
+        });
+
+        // Hero image
+        const heroCanvas = document.createElement('canvas');
+        heroCanvas.width = 1920;
+        heroCanvas.height = 1080;
+        const heroCtx = heroCanvas.getContext('2d');
+
+        // Fill background
+        heroCtx.fillStyle = '#1f2937';
+        heroCtx.fillRect(0, 0, 1920, 1080);
+
+        // Add text
+        heroCtx.fillStyle = '#ffffff';
+        heroCtx.font = '48px Arial';
+        heroCtx.textAlign = 'center';
+        heroCtx.textBaseline = 'middle';
+        heroCtx.fillText('Fashion Collection', 960, 540);
+
+        const heroContainer = document.getElementById('hero-image');
+        heroContainer.innerHTML = '<h3>Hero Image</h3>';
+        heroContainer.appendChild(heroCanvas);
+    </script>
+</body>
+</html> 
